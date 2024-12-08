@@ -266,15 +266,11 @@ def get_properties(dict1, dict2):
 
 def get_property_value(property):
     #"""从Property中获取值"""    
-    print(f"DEBUG: Received property: {property}")  # 添加调试日志    
-    if not isinstance(property, dict):
+    type = None
+    if isinstance(property, dict) and "type" in property:
+        type = property.get("type")
+    else
         return None
-
-    # 获取类型，确保类型存在并且是字符串
-    type = property.get("type")
-    if not isinstance(type, str):
-        return None
-
     # 获取内容，确保内容存在
     content = property.get(type)
     if content is None:
