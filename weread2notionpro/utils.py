@@ -265,9 +265,23 @@ def get_properties(dict1, dict2):
 
 
 def get_property_value(property):
-    """从Property中获取值"""
+    #"""从Property中获取值"""    
+    if not isinstance(property, dict):
+        return None
+
+    # 获取类型，确保类型存在并且是字符串
     type = property.get("type")
+    if not isinstance(type, str):
+        return None
+
+    # 获取内容，确保内容存在
     content = property.get(type)
+    if content is None:
+        return None
+
+    
+    #type = property.get("type")
+    #content = property.get(type)
     if content is None:
         return None
     if type == "title" or type == "rich_text":
