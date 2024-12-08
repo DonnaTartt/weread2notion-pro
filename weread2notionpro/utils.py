@@ -266,6 +266,7 @@ def get_properties(dict1, dict2):
 
 def get_property_value(property):
     #"""从Property中获取值"""    
+    print(f"DEBUG: Received property: {property}")  # 添加调试日志    
     if not isinstance(property, dict):
         return None
 
